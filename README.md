@@ -10,7 +10,7 @@
 <br/>
 
 [![mdBook](https://img.shields.io/badge/built%20with-mdBook-orange?style=flat-square&logo=rust)](https://rust-lang.github.io/mdBook/)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)]()
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 
 </div>
 
