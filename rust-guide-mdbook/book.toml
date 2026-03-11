@@ -2,3 +2,7 @@
 title = "Rust Developer Guide"
 authors = ["yunusyildiz-dev"]
 language = "en"
+
+[output.html]
+git-repository-url = "https://github.com/yunusyildiz-dev/myMadBooks/tree/main/rust-guide-mdbook"
+git-repository-icon = "fab-github"
