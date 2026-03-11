@@ -56,7 +56,6 @@
 [![Bluesky](https://img.shields.io/badge/Bluesky-0085FF?style=flat-square&logo=bluesky&logoColor=white)](https://bsky.app/profile/yunusyildiz.ch)
 [![Website](https://img.shields.io/badge/Website-000000?style=flat-square&logo=google-chrome&logoColor=white)](https://yunusyildiz.dev)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:mail@yunusyildiz.dev)
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=flat-square&logo=medium&logoColor=white)](https://medium.com/@yunusyildiz.dev)
 
 <br/>
 
