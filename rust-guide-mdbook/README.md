@@ -83,6 +83,7 @@ rust-guide-mdbook/
 <img src="../assets/images/yunusyildiz.png" width="100" height="100" alt="Yunus YILDIZ" style="border-radius: 50%;" />
 
 ### Yunus YILDIZ
+*Full Stack Developer*
 
 *Always learning. Always building.*  
 *Transforming ideas into digital experiences.*  
