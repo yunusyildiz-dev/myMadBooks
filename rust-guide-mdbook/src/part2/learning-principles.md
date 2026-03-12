@@ -39,5 +39,3 @@ Apply this cycle for **every chapter**:
 > *"The compiler is not your enemy — it's the most honest code reviewer you'll ever have."*
 >
 > **Good luck on your Rust journey!**
->
-> Yunus YILDIZ · Switzerland · [yunusyildiz.dev](https://yunusyildiz.dev)

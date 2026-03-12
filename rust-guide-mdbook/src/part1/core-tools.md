@@ -67,3 +67,13 @@ cargo fmt
 ```bash
 cargo clippy
 ```
+
+---
+
+> **rust-analyzer — Language Server**
+> A language server that powers IDE features: autocomplete, inline error highlighting, go-to-definition, refactoring, and more. Runs in the background as you code.
+
+*Node.js equivalent: The TypeScript language server built into VS Code — IntelliSense, error highlighting, etc.*
+
+- Install via extension: VS Code → Extensions → search "rust-analyzer"
+- Usually installed automatically with `rustup` (as part of the rust-analyzer component)

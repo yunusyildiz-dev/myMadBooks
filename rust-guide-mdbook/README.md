@@ -39,7 +39,12 @@ mdbook serve --open
 
 # Or build for production
 mdbook build
+
+# Apply favicon + custom print header (tab icon, branded print layout)
+./post-build.sh
 ```
+
+**Optional:** Run `./post-build.sh` after `mdbook build` to add custom favicon to the print view and a branded print header (`<Rust Developer Guide /> · yunusyildiz.dev` + date). Requires `favicon.png` in the project root.
 
 The built output goes to `book/` — deploy to any static host (GitHub Pages, Netlify, etc.).
 
@@ -60,6 +65,8 @@ Source: [The Rust Programming Language](https://doc.rust-lang.org/book/) · Back
 ```
 rust-guide-mdbook/
 ├── book.toml       # mdBook config
+├── favicon.png     # Tab icon (used by post-build.sh)
+├── post-build.sh   # Favicon + print header injection
 ├── src/            # Markdown source
 │   ├── README.md   # Book intro (first page)
 │   ├── SUMMARY.md  # Table of contents

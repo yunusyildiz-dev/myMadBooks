@@ -1,0 +1,20 @@
+/* Footer favicon - bottom-right corner */
+.yunus-footer-favicon {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  z-index: 100;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.yunus-footer-favicon:hover {
+  opacity: 1;
+}
+
+.yunus-footer-favicon img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: block;
+}
