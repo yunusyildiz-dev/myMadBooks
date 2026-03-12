@@ -13,6 +13,7 @@
 [![Book](https://img.shields.io/badge/source-The%20Rust%20Book-blue?style=flat-square)](https://doc.rust-lang.org/book/)
 [![mdBook](https://img.shields.io/badge/built%20with-mdBook-orange?style=flat-square)](https://rust-lang.github.io/mdBook/)
 [![Status](https://img.shields.io/badge/status-In%20Progress-yellow?style=flat-square)]()
+[![Version](https://img.shields.io/badge/version-v0.0.1-2ea043?style=flat-square)]()
 
 <br/>
 
@@ -43,7 +44,7 @@
 <img src="assets/images/yunusyildiz.png" width="100" height="100" alt="Yunus YILDIZ" style="border-radius: 50%;" />
 
 ### Yunus YILDIZ
-*Full Stack Developer · Rust Engineer*
+*Full Stack Developer*
 
 *Always learning. Always building.*  
 *Transforming ideas into digital experiences.*  
