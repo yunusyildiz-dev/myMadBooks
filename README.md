@@ -86,6 +86,7 @@ Feedback and contributions are welcome. Open an issue or submit a pull request.
 <img src="assets/images/yunusyildiz.png" width="90" height="90" alt="Yunus YILDIZ" style="border-radius: 50%;" />
 
 ### Yunus YILDIZ
+*Full Stack Developer*
 
 *Always learning. Always building.*  
 *Transforming ideas into digital experiences.*  
