@@ -1,6 +1,7 @@
 name: Deploy myMadBooks to GitHub Pages
 
 on:
+  workflow_dispatch:   # Manuel tetikleme: Actions → Deploy myMadBooks → Run workflow
   push:
     branches: [main]
     paths:
