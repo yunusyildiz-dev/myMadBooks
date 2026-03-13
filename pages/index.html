@@ -3,27 +3,256 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>myMadBooks — Technical Books & Guides</title>
+  <meta name="description" content="Technical books & documentation — Rust, systems engineering, developer guides. Built with mdBook.">
+  <title>myMadBooks — Technical Books & Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 4rem auto; padding: 1rem; line-height: 1.6; color: #333; }
-    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-    .subtitle { color: #666; font-size: 1rem; margin-bottom: 2rem; }
-    .book-list { list-style: none; padding: 0; margin: 0; }
-    .book-list li { margin-bottom: 1rem; }
-    .book-list a { display: block; padding: 1rem; background: #f6f8fa; border-radius: 8px; text-decoration: none; color: #0969da; font-weight: 500; border: 1px solid #eaeef2; transition: background .2s; }
-    .book-list a:hover { background: #eaeef2; }
-    .book-list .desc { display: block; font-size: 0.875rem; color: #656d76; margin-top: 0.25rem; font-weight: 400; }
+    :root {
+      --bg: #f0f2f5;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --accent: #ce422b;
+      --accent-soft: rgba(206, 66, 43, 0.08);
+      --border: #e8e6e3;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+      --stripe-bg: url("https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/lines.gif");
+      --font-serif: Georgia, Palatino, "Times New Roman", serif;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --bg-card: #252525;
+      --text: #e8e8e8;
+      --text-muted: #9a9a9a;
+      --border: #3a3a3a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+      --stripe-bg: #252525;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 3rem 0 2.5rem; }
+    .hero-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.9; }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero .tagline {
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .hero .badges { margin-top: 1.25rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .hero .badges a { opacity: 0.85; transition: opacity 0.2s; }
+    .hero .badges a:hover { opacity: 1; }
+
+    /* Books */
+    .books { padding: 0.5rem 0 3rem; }
+    .books h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .book-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .book-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+    }
+    .book-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .book-card .title { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .book-card .desc { font-size: 0.9rem; color: var(--text-muted); }
+    .book-card .arrow { color: var(--accent); font-size: 0.85rem; margin-top: 0.5rem; display: inline-block; }
+
+    /* Full-width footer bar */
+    .site-footer {
+      margin-top: 3rem;
+      width: 100%;
+      background: var(--stripe-bg);
+      border-top: 2px solid var(--border);
+      padding: 1.25rem 2rem 1rem;
+    }
+    .profile-bar {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      font-family: var(--font-serif);
+    }
+    .profile-bar__img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .profile-bar__sep {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+      margin: 0 2.5rem;
+      flex-shrink: 0;
+    }
+    .profile-bar__identity { text-align: left; }
+    .profile-bar__name { font-size: 1rem; font-weight: bold; color: var(--text); line-height: 1.3; }
+    .profile-bar__role { font-size: 0.8rem; color: var(--text-muted); }
+    .profile-bar__tagline { font-size: 0.88rem; font-style: italic; color: #0969da; white-space: nowrap; }
+    [data-theme="dark"] .profile-bar__tagline { color: #58a6ff; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 100;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: opacity 0.2s;
+    }
+    .theme-toggle:hover { opacity: 0.7; }
+    .profile-bar__links { display: flex; align-items: center; gap: 0.35em; flex-wrap: wrap; }
+    .profile-bar__links a img { height: 20px; display: block; border-radius: 4px; }
+    .profile-footer {
+      max-width: 1000px;
+      margin: 0.75rem auto 0;
+      padding: 0.75rem 0 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .profile-footer__location { font-style: italic; margin-top: 0.25rem; }
+    @media (max-width: 640px) {
+      .profile-bar { flex-direction: column; text-align: center; }
+      .profile-bar__sep { width: 48px; height: 1px; margin: 0.75rem 0; }
+      .profile-bar__identity { text-align: center; }
+      .profile-bar__tagline { white-space: normal; }
+    }
   </style>
 </head>
 <body>
-  <h1>📚 myMadBooks</h1>
-  <p class="subtitle">Technical books & documentation — built with mdBook</p>
-  <ul class="book-list">
-    <li>
-      <a href="rust-guide-book/">🦀 Rust Developer Guide</a>
-      <span class="desc">Learning Rust from zero to systems engineer. 35+ week roadmap, ecosystem reference.</span>
-    </li>
-  </ul>
+  <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle light/dark mode" aria-label="Toggle theme">☀️</button>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-icon">📚</div>
+      <h1>myMadBooks</h1>
+      <p class="tagline">Technical books & documentation — built with mdBook</p>
+      <div class="badges">
+        <a href="https://rust-lang.github.io/mdBook/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/mdBook-0.4-orange?style=flat-square&logo=rust" alt="mdBook"></a>
+        <a href="https://github.com/yunusyildiz-dev/myMadBooks/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"></a>
+      </div>
+    </header>
+
+    <section class="books">
+      <h2>Books</h2>
+      <a href="rust-guide-book/" class="book-card">
+        <span class="icon">🦀</span>
+        <span class="title">Rust Developer Guide</span>
+        <span class="desc">Learning Rust from zero to systems engineer. 35+ week roadmap, ecosystem reference, backend focus.</span>
+        <span class="arrow">Read →</span>
+      </a>
+      <div class="book-card" style="opacity: 0.6; pointer-events: none; cursor: default;">
+        <span class="icon">📖</span>
+        <span class="title">More coming soon</span>
+        <span class="desc">New books and guides are on the way.</span>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+      <div class="profile-bar">
+        <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" width="64" height="64" class="profile-bar__img">
+        <div class="profile-bar__sep"></div>
+        <div class="profile-bar__identity">
+          <div class="profile-bar__name">Yunus YILDIZ</div>
+          <div class="profile-bar__role">Full Stack Developer</div>
+        </div>
+        <div class="profile-bar__sep"></div>
+        <p class="profile-bar__tagline">Always learning. Always building.</p>
+        <div class="profile-bar__sep"></div>
+        <div class="profile-bar__links">
+          <a href="https://github.com/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
+          <a href="https://www.linkedin.com/in/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+          <a href="https://mastodon.social/@yunusyildiz_dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Mastodon-6364FF?style=flat-square&logo=mastodon&logoColor=white" alt="Mastodon"></a>
+          <a href="https://bsky.app/profile/yunusyildiz.ch" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Bluesky-0085FF?style=flat-square&logo=bluesky&logoColor=white" alt="Bluesky"></a>
+          <a href="https://www.npmjs.com/~yunusyildiz" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm"></a>
+          <a href="https://yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Website-000000?style=flat-square&logo=google-chrome&logoColor=white" alt="Website"></a>
+          <a href="mailto:mail@yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+        </div>
+      </div>
+      <div class="profile-footer">
+        <div>Built with ☕ and ❤️</div>
+        <div class="profile-footer__location" id="profile-location"></div>
+      </div>
+  </footer>
+  <script>
+    (function(){
+      var m = new Date().toLocaleString("en-US", { month: "long" });
+      var y = new Date().getFullYear();
+      var el = document.getElementById("profile-location");
+      if(el) el.textContent = "‹ " + m + " " + y + " · Geneva, Switzerland ›";
+    })();
+    (function(){
+      var btn = document.getElementById("theme-toggle");
+      var html = document.documentElement;
+      var theme = localStorage.getItem("mymadbooks-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      function apply() {
+        html.setAttribute("data-theme", theme);
+        btn.textContent = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      }
+      apply();
+      btn.addEventListener("click", function(){
+        theme = theme === "light" ? "dark" : "light";
+        localStorage.setItem("mymadbooks-theme", theme);
+        apply();
+      });
+    })();
+  </script>
 </body>
 </html>
