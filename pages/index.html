@@ -36,7 +36,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; min-height: 100%; }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
@@ -46,8 +46,7 @@
       display: flex;
       flex-direction: column;
     }
-
-    .container { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; }
+    .container { flex: 1; max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; }
 
     /* Hero */
     .hero { text-align: center; padding: 3rem 0 2.5rem; }
@@ -99,11 +98,11 @@
 
     /* Full-width footer bar */
     .site-footer {
-      margin-top: 3rem;
+      margin-top: auto;
       width: 100%;
       background: var(--stripe-bg);
       border-top: 2px solid var(--profile-border);
-      padding: 1.25rem 2rem 1rem;
+      padding: 1.25rem 2rem 0.75rem;
     }
     .profile-bar {
       max-width: 1000px;
