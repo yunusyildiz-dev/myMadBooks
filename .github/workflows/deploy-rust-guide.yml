@@ -7,6 +7,7 @@ on:
     paths:
       - 'rust-guide-mdbook/**'
       - 'pages/**'
+      - 'assets/**'
       - '.github/workflows/deploy-rust-guide.yml'
 
 jobs:

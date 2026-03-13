@@ -2,7 +2,7 @@
 
 <img src="https://rustacean.net/assets/rustacean-orig-noshadow.svg" width="100" alt="Ferris the Crab" />
 
-# 📚 myMadBooks
+# 📚 myMadBooks <img src="assets/images/Mdbook-Icon.svg" width="24" height="24" alt="mdBook" /> 
 
 **A curated collection of technical books built with [mdBook](https://rust-lang.github.io/mdBook/)**  
 *Structured documentation · Learning roadmaps · Developer guides*
