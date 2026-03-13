@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f0f2f5;
+      --bg: #f7f8fa;
       --bg-card: #ffffff;
       --text: #1a1a1a;
       --text-muted: #5c5c5c;
@@ -21,6 +21,7 @@
       --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
       --stripe-bg: url("https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/lines.gif");
       --font-serif: Georgia, Palatino, "Times New Roman", serif;
+      --profile-border: #cccccc;
     }
     [data-theme="dark"] {
       --bg: #1a1a1a;
@@ -28,6 +29,7 @@
       --text: #e8e8e8;
       --text-muted: #9a9a9a;
       --border: #3a3a3a;
+      --profile-border: #4a4a4a;
       --shadow: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
       --stripe-bg: #252525;
@@ -100,7 +102,7 @@
       margin-top: 3rem;
       width: 100%;
       background: var(--stripe-bg);
-      border-top: 2px solid var(--border);
+      border-top: 2px solid var(--profile-border);
       padding: 1.25rem 2rem 1rem;
     }
     .profile-bar {
@@ -109,24 +111,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
+      gap: 2rem;
       font-family: var(--font-serif);
     }
+    .profile-bar__col1 { display: flex; align-items: center; }
+    .profile-bar__col2 { display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
     .profile-bar__img {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 20%;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-    }
-    .profile-bar__sep {
-      width: 1px;
-      height: 36px;
-      background: var(--border);
-      margin: 0 2.5rem;
+      border: 2px solid var(--profile-border);
       flex-shrink: 0;
     }
     .profile-bar__identity { text-align: left; }
@@ -161,15 +157,15 @@
       max-width: 1000px;
       margin: 0.75rem auto 0;
       padding: 0.75rem 0 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--profile-border);
       text-align: center;
       font-size: 0.75rem;
       color: var(--text-muted);
     }
     .profile-footer__location { font-style: italic; margin-top: 0.25rem; }
     @media (max-width: 640px) {
-      .profile-bar { flex-direction: column; text-align: center; }
-      .profile-bar__sep { width: 48px; height: 1px; margin: 0.75rem 0; }
+      .profile-bar { flex-direction: column; text-align: center; gap: 1rem; }
+      .profile-bar__col2 { align-items: center; }
       .profile-bar__identity { text-align: center; }
       .profile-bar__tagline { white-space: normal; }
     }
@@ -206,16 +202,16 @@
 
   <footer class="site-footer">
       <div class="profile-bar">
-        <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" width="64" height="64" class="profile-bar__img">
-        <div class="profile-bar__sep"></div>
-        <div class="profile-bar__identity">
-          <div class="profile-bar__name">Yunus YILDIZ</div>
-          <div class="profile-bar__role">Full Stack Developer</div>
+        <div class="profile-bar__col1">
+          <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" width="80" height="80" class="profile-bar__img">
         </div>
-        <div class="profile-bar__sep"></div>
-        <p class="profile-bar__tagline">Always learning. Always building.</p>
-        <div class="profile-bar__sep"></div>
-        <div class="profile-bar__links">
+        <div class="profile-bar__col2">
+          <div class="profile-bar__identity">
+            <div class="profile-bar__name">Yunus YILDIZ</div>
+            <div class="profile-bar__role">Full Stack Developer</div>
+          </div>
+          <p class="profile-bar__tagline">Always learning. Always building.</p>
+          <div class="profile-bar__links">
           <a href="https://github.com/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
           <a href="https://www.linkedin.com/in/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
           <a href="https://mastodon.social/@yunusyildiz_dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Mastodon-6364FF?style=flat-square&logo=mastodon&logoColor=white" alt="Mastodon"></a>
@@ -223,6 +219,7 @@
           <a href="https://www.npmjs.com/~yunusyildiz" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm"></a>
           <a href="https://yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Website-000000?style=flat-square&logo=google-chrome&logoColor=white" alt="Website"></a>
           <a href="mailto:mail@yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+          </div>
         </div>
       </div>
       <div class="profile-footer">
