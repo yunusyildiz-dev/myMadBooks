@@ -1,0 +1,9 @@
+[book]
+title = "History of Operating Systems"
+authors = ["yunusyildiz-dev"]
+language = "en"
+
+[output.html]
+site-url = "https://yunusyildiz-dev.github.io/myMadBooks/os-history-book/"
+git-repository-url = "https://github.com/yunusyildiz-dev/myMadBooks/tree/main/os-history-mdbook"
+git-repository-icon = "fab-github"

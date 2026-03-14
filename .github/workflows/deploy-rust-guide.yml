@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'rust-guide-mdbook/**'
+      - 'os-history-mdbook/**'
       - 'pages/**'
       - 'assets/**'
       - '.github/workflows/deploy-rust-guide.yml'
@@ -34,11 +35,17 @@ jobs:
           cd rust-guide-mdbook
           mdbook build
 
+      - name: Build OS History
+        run: |
+          cd os-history-mdbook
+          mdbook build
+
       - name: Prepare site
         run: |
           mkdir -p _site
           cp pages/index.html _site/
           cp -r rust-guide-mdbook/book _site/rust-guide-book
+          cp -r os-history-mdbook/book _site/os-history-book
           mkdir -p _site/assets/images
           cp -r assets/images/* _site/assets/images/ 2>/dev/null || true
 

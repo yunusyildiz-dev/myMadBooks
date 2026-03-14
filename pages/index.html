@@ -11,228 +11,340 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #fafafa;
       --bg-card: #ffffff;
       --text: #1a1a1a;
-      --text-muted: #5c5c5c;
+      --text-muted: #6b7280;
       --accent: #ce422b;
-      --accent-soft: rgba(206, 66, 43, 0.08);
-      --border: #e8e6e3;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
-      --stripe-bg: url("https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/lines.gif");
-      --font-serif: Georgia, Palatino, "Times New Roman", serif;
-      --profile-border: #cccccc;
+      --border: #e5e7eb;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --logo-bar-width: 220px;
+      --footer-bg: #f3f4f6;
+      --footer-border: #e5e7eb;
     }
     [data-theme="dark"] {
-      --bg: #1a1a1a;
-      --bg-card: #252525;
-      --text: #e8e8e8;
-      --text-muted: #9a9a9a;
-      --border: #3a3a3a;
-      --profile-border: #4a4a4a;
-      --shadow: 0 1px 3px rgba(0,0,0,0.3);
-      --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
-      --stripe-bg: #252525;
+      --bg: #111827;
+      --bg-card: #1f2937;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --border: #374151;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.3);
+      --footer-bg: #1f2937;
+      --footer-border: #374151;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; min-height: 100%; }
-    body {
-      font-family: 'DM Sans', system-ui, sans-serif;
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
+    }
+    body {
       display: flex;
       flex-direction: column;
     }
-    .container { flex: 1; max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; }
 
-    /* Hero */
-    .hero { text-align: center; padding: 3rem 0 2.5rem; }
-    .hero-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.9; }
-    .hero h1 {
-      font-size: 2rem;
+    /* Main layout: single row — logo bar + content */
+    .main-area {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* Left: Logo bar (includes author) */
+    .logo-bar {
+      width: var(--logo-bar-width);
+      flex-shrink: 0;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem;
+    }
+    .logo-bar__top { display: flex; flex-direction: column; align-items: center; }
+    .logo-bar__icon { margin-bottom: 0.5rem; }
+    .logo-bar__title {
+      font-size: 1.15rem;
       font-weight: 600;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      text-align: center;
+      margin-bottom: 0.2rem;
     }
-    .hero .tagline {
-      color: var(--text-muted);
-      font-size: 1rem;
-      font-weight: 400;
-    }
-    .hero .badges { margin-top: 1.25rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-    .hero .badges a { opacity: 0.85; transition: opacity 0.2s; }
-    .hero .badges a:hover { opacity: 1; }
-
-    /* Books */
-    .books { padding: 0.5rem 0 3rem; }
-    .books h2 {
+    .logo-bar__tagline {
       font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
       color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .book-card {
-      display: block;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow 0.2s, border-color 0.2s;
+      text-align: center;
       margin-bottom: 0.75rem;
     }
-    .book-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent);
-    }
-    .book-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .book-card .title { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
-    .book-card .desc { font-size: 0.9rem; color: var(--text-muted); }
-    .book-card .arrow { color: var(--accent); font-size: 0.85rem; margin-top: 0.5rem; display: inline-block; }
-
-    /* Full-width footer bar */
-    .site-footer {
-      margin-top: auto;
-      width: 100%;
-      background: var(--stripe-bg);
-      border-top: 2px solid var(--profile-border);
-      padding: 1.25rem 2rem 0.75rem;
-    }
-    .profile-bar {
-      max-width: 1000px;
-      margin: 0 auto;
+    .logo-bar .badges {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem;
       justify-content: center;
-      gap: 2rem;
-      font-family: var(--font-serif);
     }
-    .profile-bar__col1 { display: flex; align-items: center; }
-    .profile-bar__col2 { display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
-    .profile-bar__img {
-      width: 80px;
-      height: 80px;
+    .logo-bar .badges a { opacity: 0.9; transition: opacity 0.15s; }
+    .logo-bar .badges a:hover { opacity: 1; }
+    .logo-bar__author {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .logo-bar__author-img {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 20%;
-      border: 2px solid var(--profile-border);
+      border: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .logo-bar__author-name { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .logo-bar__author-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      justify-content: center;
+    }
+    .logo-bar__author-links a { opacity: 0.85; transition: opacity 0.15s; }
+    .logo-bar__author-links a:hover { opacity: 1; }
+    .logo-bar__author-links img { height: 18px; display: block; border-radius: 4px; }
+    .logo-bar__footer { font-size: 0.65rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+    /* Right: Content bar (scrollable) */
+    .content-bar {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .content-bar__header {
+      flex-shrink: 0;
+      padding: 1.5rem 1.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .content-bar__header h2 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+    .content-bar__scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 1rem 1.75rem 1.5rem;
+    }
+    .content-bar__scroll::-webkit-scrollbar { width: 8px; }
+    .content-bar__scroll::-webkit-scrollbar-track { background: transparent; }
+    .content-bar__scroll::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+    .content-bar__scroll::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* Book cards */
+    .book-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .book-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-card);
+      min-height: 88px;
+    }
+    .book-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    [data-theme="dark"] .book-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .book-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--footer-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
       flex-shrink: 0;
     }
-    .profile-bar__identity { text-align: left; }
-    .profile-bar__name { font-size: 1rem; font-weight: bold; color: var(--text); line-height: 1.3; }
-    .profile-bar__role { font-size: 0.8rem; color: var(--text-muted); }
-    .profile-bar__tagline { font-size: 0.88rem; font-style: italic; color: #0969da; white-space: nowrap; }
-    [data-theme="dark"] .profile-bar__tagline { color: #58a6ff; }
+    .book-card__body { flex: 1; min-width: 0; }
+    .book-card__header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
+    .book-card .title { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .book-card .desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
+    .book-card__badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15em 0.45em;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+    }
+    .book-card__arrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: inline-flex;
+    }
+    .book-card--disabled {
+      opacity: 0.55;
+      pointer-events: none;
+      cursor: default;
+    }
+    .book-card--disabled:hover { border-color: var(--border); box-shadow: var(--shadow-card); }
 
     /* Theme toggle */
     .theme-toggle {
       position: fixed;
-      top: 1rem;
-      right: 1rem;
+      top: 0.75rem;
+      right: 0.75rem;
       z-index: 100;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      background: transparent;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
       color: var(--text);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
       transition: opacity 0.2s;
     }
-    .theme-toggle:hover { opacity: 0.7; }
-    .profile-bar__links { display: flex; align-items: center; gap: 0.35em; flex-wrap: wrap; }
-    .profile-bar__links a img { height: 20px; display: block; border-radius: 4px; }
-    .profile-footer {
-      max-width: 1000px;
-      margin: 0.75rem auto 0;
-      padding: 0.75rem 0 0;
-      border-top: 1px solid var(--profile-border);
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-    .profile-footer__location { font-style: italic; margin-top: 0.25rem; }
+    .theme-toggle:hover { opacity: 0.8; }
+
     @media (max-width: 640px) {
-      .profile-bar { flex-direction: column; text-align: center; gap: 1rem; }
-      .profile-bar__col2 { align-items: center; }
-      .profile-bar__identity { text-align: center; }
-      .profile-bar__tagline { white-space: normal; }
+      .main-area { flex-direction: column; }
+      .logo-bar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+      .logo-bar__top { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      .logo-bar__icon { margin-bottom: 0; }
+      .logo-bar__title { margin-bottom: 0; }
+      .logo-bar__tagline { margin-bottom: 0; }
+      .logo-bar__author {
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .logo-bar__author-img { margin-bottom: 0; }
+      .logo-bar__author-name { margin-bottom: 0; margin-right: 0.25rem; }
+      .logo-bar__author-links { flex: 1; justify-content: center; min-width: 0; }
+      .logo-bar__footer { width: 100%; margin-top: 0.25rem; }
+      .content-bar__scroll { padding: 1rem; }
+      .book-card { min-height: auto; }
     }
   </style>
 </head>
 <body>
   <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle light/dark mode" aria-label="Toggle theme">☀️</button>
-  <div class="container">
-    <header class="hero">
-      <div class="hero-icon"><img src="assets/images/Mdbook-Icon.svg" alt="mdBook" width="56" height="56" class="hero-icon__mdbook"></div>
-      <h1>📚 myMadBooks</h1>
-      <p class="tagline">Technical books & documentation — built with mdBook</p>
-      <div class="badges">
-        <a href="https://rust-lang.github.io/mdBook/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/mdBook-0.4-orange?style=flat-square&logo=rust" alt="mdBook"></a>
-        <a href="https://github.com/yunusyildiz-dev/myMadBooks/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"></a>
-      </div>
-    </header>
 
-    <section class="books">
-      <h2>Books</h2>
-      <a href="rust-guide-book/" class="book-card" target="_blank" rel="noopener noreferrer">
-        <span class="icon">🦀</span>
-        <span class="title">Rust Developer Guide</span>
-        <span class="desc">Learning Rust from zero to systems engineer. 35+ week roadmap, ecosystem reference, backend focus.</span>
-        <span class="arrow">Read →</span>
-      </a>
-      <div class="book-card" style="opacity: 0.6; pointer-events: none; cursor: default;">
-        <span class="icon">📖</span>
-        <span class="title">More coming soon</span>
-        <span class="desc">New books and guides are on the way.</span>
-      </div>
-    </section>
-  </div>
-
-  <footer class="site-footer">
-      <div class="profile-bar">
-        <div class="profile-bar__col1">
-          <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" width="80" height="80" class="profile-bar__img">
+  <div class="main-area">
+    <aside class="logo-bar">
+      <div class="logo-bar__top">
+        <div class="logo-bar__icon"><img src="assets/images/Mdbook-Icon.svg" alt="mdBook" width="48" height="48"></div>
+        <div class="logo-bar__title">📚 myMadBooks</div>
+        <div class="logo-bar__tagline">Technical books · built with mdBook</div>
+        <div class="badges">
+          <a href="https://rust-lang.github.io/mdBook/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/mdBook-0.4-orange?style=flat-square&logo=rust" alt="mdBook"></a>
+          <a href="https://github.com/yunusyildiz-dev/myMadBooks/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"></a>
         </div>
-        <div class="profile-bar__col2">
-          <div class="profile-bar__identity">
-            <div class="profile-bar__name">Yunus YILDIZ</div>
-            <div class="profile-bar__role">Full Stack Developer</div>
-          </div>
-          <p class="profile-bar__tagline">Always learning. Always building.</p>
-          <div class="profile-bar__links">
+      </div>
+      <div class="logo-bar__author">
+        <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" class="logo-bar__author-img">
+        <div class="logo-bar__author-name">Yunus YILDIZ</div>
+        <div class="logo-bar__author-links">
           <a href="https://github.com/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
+          <a href="https://www.npmjs.com/~yunusyildiz" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm"></a>
           <a href="https://www.linkedin.com/in/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
           <a href="https://mastodon.social/@yunusyildiz_dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Mastodon-6364FF?style=flat-square&logo=mastodon&logoColor=white" alt="Mastodon"></a>
           <a href="https://bsky.app/profile/yunusyildiz.ch" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Bluesky-0085FF?style=flat-square&logo=bluesky&logoColor=white" alt="Bluesky"></a>
-          <a href="https://www.npmjs.com/~yunusyildiz" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm"></a>
           <a href="https://yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Website-000000?style=flat-square&logo=google-chrome&logoColor=white" alt="Website"></a>
           <a href="mailto:mail@yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+        </div>
+        <div class="logo-bar__footer">Built with ☕ and ❤️ · <span id="profile-location"></span></div>
+      </div>
+    </aside>
+
+    <main class="content-bar">
+      <div class="content-bar__header">
+        <h2>Books</h2>
+      </div>
+      <div class="content-bar__scroll">
+        <div class="book-list">
+          <a href="rust-guide-book/" class="book-card" target="_blank" rel="noopener noreferrer">
+            <div class="book-card__icon">🦀</div>
+            <div class="book-card__body">
+              <div class="book-card__header">
+                <span class="title">Rust Developer Guide</span>
+              </div>
+              <p class="desc">Learning Rust from zero to systems engineer. 35+ week roadmap, ecosystem reference, backend focus.</p>
+              <span class="book-card__arrow">Read →</span>
+            </div>
+          </a>
+          <a href="os-history-book/" class="book-card" target="_blank" rel="noopener noreferrer">
+            <div class="book-card__icon">🖥️</div>
+            <div class="book-card__body">
+              <div class="book-card__header">
+                <span class="title">History of Operating Systems</span>
+                <span class="book-card__badge">New</span>
+              </div>
+              <p class="desc">From ENIAC to the cloud — the evolution of the computing world. Stories, dates, and the people behind them (1940s–2020s).</p>
+              <span class="book-card__arrow">Read →</span>
+            </div>
+          </a>
+          <div class="book-card book-card--disabled">
+            <div class="book-card__icon">📖</div>
+            <div class="book-card__body">
+              <div class="book-card__header">
+                <span class="title">More coming soon</span>
+              </div>
+              <p class="desc">New books and guides are on the way.</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="profile-footer">
-        <div>Built with ☕ and ❤️</div>
-        <div class="profile-footer__location" id="profile-location"></div>
-      </div>
-  </footer>
+    </main>
+  </div>
+
   <script>
     (function(){
       var m = new Date().toLocaleString("en-US", { month: "long" });
       var y = new Date().getFullYear();
       var el = document.getElementById("profile-location");
-      if(el) el.textContent = "‹ " + m + " " + y + " · Geneva, Switzerland ›";
+      if(el) el.textContent = m + " " + y + " · Geneva, Switzerland";
     })();
     (function(){
       var btn = document.getElementById("theme-toggle");
