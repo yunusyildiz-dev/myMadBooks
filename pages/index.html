@@ -93,9 +93,11 @@
     .logo-bar .badges a:hover { opacity: 1; }
     .logo-bar__author {
       margin-top: auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      padding: 1.25rem 1rem;
+      border: 1px solid #9ca3af;
+      border-radius: 10px;
       text-align: center;
+      background: var(--footer-bg) url("https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/lines.gif") repeat;
     }
     .logo-bar__author-img {
       width: 48px;
@@ -152,125 +154,96 @@
     }
     .content-bar__scroll::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-    /* Book cards — Refined, premium aesthetic */
-    .book-list { display: flex; flex-direction: column; gap: 1rem; }
+    /* Book cards — subtle, refined */
+    .book-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .book-card {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       background: var(--bg-card);
-      border: 1px solid transparent;
-      border-radius: 14px;
-      padding: 1.35rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
       text-decoration: none;
       color: inherit;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
-      min-height: 92px;
-      position: relative;
-      overflow: hidden;
-    }
-    .book-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      min-height: 72px;
     }
     .book-card:hover {
-      border-color: rgba(206, 66, 43, 0.2);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
-      transform: translateY(-1px);
-    }
-    .book-card:hover::before { opacity: 1; }
-    [data-theme="dark"] .book-card {
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      border-color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.02);
     }
     [data-theme="dark"] .book-card:hover {
-      border-color: rgba(206, 66, 43, 0.3);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: rgba(255, 255, 255, 0.04);
     }
     .book-card__icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, rgba(206, 66, 43, 0.08) 0%, rgba(206, 66, 43, 0.02) 100%);
-      border: 1px solid rgba(206, 66, 43, 0.12);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--footer-bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       flex-shrink: 0;
-      transition: all 0.25s ease;
     }
     .book-card:hover .book-card__icon {
-      background: linear-gradient(145deg, rgba(206, 66, 43, 0.12) 0%, rgba(206, 66, 43, 0.04) 100%);
-      border-color: rgba(206, 66, 43, 0.2);
+      background: var(--border);
     }
     .book-card--disabled .book-card__icon {
-      background: var(--footer-bg);
-      border-color: var(--border);
+      opacity: 0.7;
     }
     .book-card__body { flex: 1; min-width: 0; }
     .book-card__header {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.35rem;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
     }
     .book-card .title {
-      font-size: 1.08rem;
+      font-size: 0.98rem;
       font-weight: 600;
       color: var(--text);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
     .book-card .desc {
-      font-size: 0.875rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.55;
-      letter-spacing: 0.01em;
+      line-height: 1.5;
     }
     .book-card__arrow {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
       display: inline-flex;
-      align-items: center;
-      margin-top: 0.6rem;
-      opacity: 0.85;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      transition: color 0.2s ease;
     }
     .book-card:hover .book-card__arrow {
-      opacity: 1;
-      transform: translateX(2px);
+      color: var(--accent);
     }
     .book-card__badge {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.2em 0.55em;
-      border-radius: 6px;
-      background: linear-gradient(135deg, var(--accent) 0%, #b83824 100%);
+      letter-spacing: 0.05em;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      background: var(--accent);
       color: #fff;
-      box-shadow: 0 1px 2px rgba(206, 66, 43, 0.25);
     }
     .book-card--disabled {
-      opacity: 0.5;
+      opacity: 0.55;
       pointer-events: none;
       cursor: default;
     }
     .book-card--disabled:hover {
-      transform: none;
-      border-color: transparent;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      border-color: var(--border);
+      background: var(--bg-card);
     }
-    [data-theme="dark"] .book-card--disabled:hover {
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+    /* Mobile footer — only visible on small screens, stays at bottom */
+    .mobile-footer {
+      display: none;
     }
 
     /* Theme toggle */
@@ -301,30 +274,46 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.75rem;
-        padding: 1rem;
+        gap: 0.5rem;
+        padding: 0.9rem 1rem;
+        flex-shrink: 0;
       }
       .logo-bar__top { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
       .logo-bar__icon { margin-bottom: 0; }
       .logo-bar__title { margin-bottom: 0; }
       .logo-bar__tagline { margin-bottom: 0; }
-      .logo-bar__author {
-        width: 100%;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .logo-bar__author-img { margin-bottom: 0; }
-      .logo-bar__author-name { margin-bottom: 0; margin-right: 0.25rem; }
-      .logo-bar__author-links { flex: 1; justify-content: center; min-width: 0; }
-      .logo-bar__footer { width: 100%; margin-top: 0.25rem; }
+      .logo-bar__author { display: none !important; }
+      .content-bar { flex: 1; min-height: 0; }
       .content-bar__scroll { padding: 1rem; }
       .book-card { min-height: auto; }
+      /* Mobile footer at bottom */
+      .mobile-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        margin: 0 1rem 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--footer-bg) url("https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/lines.gif") repeat;
+        border: 1px solid #9ca3af;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .mobile-footer__img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 20%;
+        border: 1px solid var(--border);
+        margin-bottom: 0.35rem;
+      }
+      .mobile-footer__name { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.35rem; }
+      .mobile-footer__links { display: flex; flex-wrap: wrap; gap: 0.25rem; justify-content: center; }
+      .mobile-footer__links a { opacity: 0.85; }
+      .mobile-footer__links a:hover { opacity: 1; }
+      .mobile-footer__links img { height: 18px; display: block; border-radius: 4px; }
+      .mobile-footer__tagline { font-size: 0.65rem; color: var(--text-muted); margin-top: 0.35rem; }
     }
   </style>
 </head>
@@ -397,14 +386,33 @@
         </div>
       </div>
     </main>
+
+    <!-- Mobile footer: author at bottom on small screens -->
+    <footer class="mobile-footer">
+      <img src="https://raw.githubusercontent.com/yunusyildiz-dev/yunusyildiz-dev/main/assets/img/profile.png" alt="Yunus YILDIZ" class="mobile-footer__img">
+      <span class="mobile-footer__name">Yunus YILDIZ</span>
+      <div class="mobile-footer__links">
+        <a href="https://github.com/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
+        <a href="https://www.npmjs.com/~yunusyildiz" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white" alt="npm"></a>
+        <a href="https://www.linkedin.com/in/yunusyildiz-dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+        <a href="https://mastodon.social/@yunusyildiz_dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Mastodon-6364FF?style=flat-square&logo=mastodon&logoColor=white" alt="Mastodon"></a>
+        <a href="https://bsky.app/profile/yunusyildiz.ch" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Bluesky-0085FF?style=flat-square&logo=bluesky&logoColor=white" alt="Bluesky"></a>
+        <a href="https://yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Website-000000?style=flat-square&logo=google-chrome&logoColor=white" alt="Website"></a>
+        <a href="mailto:mail@yunusyildiz.dev" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+      </div>
+      <div class="mobile-footer__tagline">Built with ☕ and ❤️ · <span id="profile-location-mobile"></span></div>
+    </footer>
   </div>
 
   <script>
     (function(){
       var m = new Date().toLocaleString("en-US", { month: "long" });
       var y = new Date().getFullYear();
+      var txt = m + " " + y + " · Geneva, Switzerland";
       var el = document.getElementById("profile-location");
-      if(el) el.textContent = m + " " + y + " · Geneva, Switzerland";
+      var elM = document.getElementById("profile-location-mobile");
+      if(el) el.textContent = txt;
+      if(elM) elM.textContent = txt;
     })();
     (function(){
       var btn = document.getElementById("theme-toggle");
