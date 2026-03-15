@@ -13,7 +13,7 @@
 [![Book](https://img.shields.io/badge/source-The%20Rust%20Book-blue?style=flat-square)](https://doc.rust-lang.org/book/)
 [![mdBook](https://img.shields.io/badge/built%20with-mdBook-orange?style=flat-square)](https://rust-lang.github.io/mdBook/)
 [![Status](https://img.shields.io/badge/status-In%20Progress-yellow?style=flat-square)]()
-[![Version](https://img.shields.io/badge/version-v0.0.1-2ea043?style=flat-square)]()
+[![Version](https://img.shields.io/badge/version-v1.0.0-2ea043?style=flat-square)]()
 
 <br/>
 
