@@ -11,6 +11,11 @@
 
 [![mdBook](https://img.shields.io/badge/built%20with-mdBook-orange?style=flat-square&logo=rust)](https://rust-lang.github.io/mdBook/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?style=flat-square&logo=github)](https://yunusyildiz-dev.github.io/myMadBooks/)
+
+<br/>
+
+**🌐 [yunusyildiz-dev.github.io/myMadBooks](https://yunusyildiz-dev.github.io/myMadBooks/)**
 
 </div>
 
@@ -29,8 +34,8 @@ Whether you're learning Rust, exploring ecosystems, or building reference materi
 | Book | Description |
 |------|--------------|
 | **[Rust Developer Guide](rust-guide-mdbook/)** | 🦀 Learning Rust from zero to systems engineer. Ecosystem reference, 35+ week roadmap, backend & systems focus. Following *The Rust Programming Language*. |
-
-*More books coming soon.*
+| **[History of Operating Systems](os-history-mdbook/)** | 🖥️ From ENIAC to the cloud — the evolution of the computing world. Stories, dates, and the people behind them (1940s–2020s). |
+| **[TypeScript Handbook — Türkçe](typescript-handbook-mdbook/)** | 🔷 Junior JS geliştiriciden Fullstack AI Developer'a kapsamlı TypeScript rehberi. Temel tiplerden Claude API'ye, RAG pipeline'dan agent mimarisine (12 bölüm). |
 
 ---
 
@@ -38,10 +43,11 @@ Whether you're learning Rust, exploring ecosystems, or building reference materi
 
 ```
 myMadBooks/
-├── rust-guide-mdbook/     # Rust Developer Guide (mdBook project)
-├── assets/                # Shared images and media
-├── data/                  # Source content (LaTeX, drafts)
-└── me/                    # Personal reference docs (mdBook guides)
+├── rust-guide-mdbook/          # Rust Developer Guide
+├── os-history-mdbook/          # History of Operating Systems
+├── typescript-handbook-mdbook/ # TypeScript Handbook — Türkçe
+├── pages/                      # GitHub Pages landing (index.html)
+└── assets/                     # Shared images and media
 ```
 
 ---
