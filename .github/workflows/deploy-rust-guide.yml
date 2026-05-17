@@ -7,6 +7,7 @@ on:
     paths:
       - 'rust-guide-mdbook/**'
       - 'os-history-mdbook/**'
+      - 'typescript-handbook/**'
       - 'pages/**'
       - 'assets/**'
       - '.github/workflows/deploy-rust-guide.yml'
@@ -40,12 +41,18 @@ jobs:
           cd os-history-mdbook
           mdbook build
 
+      - name: Build TypeScript Handbook
+        run: |
+          cd typescript-handbook
+          mdbook build
+
       - name: Prepare site
         run: |
           mkdir -p _site
           cp pages/index.html _site/
           cp -r rust-guide-mdbook/book _site/rust-guide-book
           cp -r os-history-mdbook/book _site/os-history-book
+          cp -r typescript-handbook/book _site/typescript-handbook
           mkdir -p _site/assets/images
           cp -r assets/images/* _site/assets/images/ 2>/dev/null || true
 
