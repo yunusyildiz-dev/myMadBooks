@@ -35,7 +35,7 @@ Whether you're learning Rust, exploring ecosystems, or building reference materi
 |------|--------------|
 | **[Rust Developer Guide](rust-guide-mdbook/)** | 🦀 Learning Rust from zero to systems engineer. Ecosystem reference, 35+ week roadmap, backend & systems focus. Following *The Rust Programming Language*. |
 | **[History of Operating Systems](os-history-mdbook/)** | 🖥️ From ENIAC to the cloud — the evolution of the computing world. Stories, dates, and the people behind them (1940s–2020s). |
-| **[TypeScript Handbook — Türkçe](typescript-handbook-mdbook/)** | 🔷 Junior JS geliştiriciden Fullstack AI Developer'a kapsamlı TypeScript rehberi. Temel tiplerden Claude API'ye, RAG pipeline'dan agent mimarisine (12 bölüm). |
+| **[TypeScript Handbook — Türkçe](typescript-handbook/)** | 🔷 Junior JS geliştiriciden Fullstack AI Developer'a kapsamlı TypeScript rehberi. Temel tiplerden Claude API'ye, RAG pipeline'dan agent mimarisine (12 bölüm). |
 
 ---
 
