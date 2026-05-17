@@ -1,0 +1,142 @@
+/* ============================================================
+   TypeScript Handbook — Custom Theme
+   ============================================================ */
+
+/* ── Callout Box Base ── */
+.callout {
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  border-left: 4px solid;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* ── Callout Variants ── */
+.callout-tip {
+  background: #e6f9f0;
+  border-color: #27ae60;
+  color: #1a6b3c;
+}
+
+.callout-warning {
+  background: #fff8e1;
+  border-color: #f39c12;
+  color: #7d5800;
+}
+
+.callout-danger {
+  background: #fdecea;
+  border-color: #e74c3c;
+  color: #922b21;
+}
+
+.callout-info {
+  background: #eaf4fe;
+  border-color: #3498db;
+  color: #1a5276;
+}
+
+.callout-real-world {
+  background: #f0eaff;
+  border-color: #8e44ad;
+  color: #5b2c6f;
+}
+
+/* Dark mode overrides */
+.navy .callout-tip,
+.coal .callout-tip,
+.ayu .callout-tip {
+  background: rgba(39,174,96,0.12);
+  color: #7dcea0;
+}
+
+.navy .callout-warning,
+.coal .callout-warning,
+.ayu .callout-warning {
+  background: rgba(243,156,18,0.12);
+  color: #f8c471;
+}
+
+.navy .callout-danger,
+.coal .callout-danger,
+.ayu .callout-danger {
+  background: rgba(231,76,60,0.12);
+  color: #f1948a;
+}
+
+.navy .callout-info,
+.coal .callout-info,
+.ayu .callout-info {
+  background: rgba(52,152,219,0.12);
+  color: #7fb3d3;
+}
+
+.navy .callout-real-world,
+.coal .callout-real-world,
+.ayu .callout-real-world {
+  background: rgba(142,68,173,0.12);
+  color: #c39bd3;
+}
+
+/* ── Chapter Badges ── */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.badge-beginner  { background: #d5f5e3; color: #1d6a3a; }
+.badge-mid       { background: #fdebd0; color: #784212; }
+.badge-advanced  { background: #fadbd8; color: #78281f; }
+
+/* ── Summary Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 0.92em;
+}
+
+table thead th {
+  background: #3178c6;
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+  background: rgba(49,120,198,0.06);
+}
+
+table tbody td {
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── Section Divider ── */
+.section-divider {
+  border: none;
+  border-top: 2px dashed rgba(49,120,198,0.3);
+  margin: 32px 0;
+}
+
+/* ── TypeScript brand color accent on h2 ── */
+h2 {
+  border-left: 4px solid #3178c6;
+  padding-left: 10px;
+}
+
+h3 {
+  color: #2563a7;
+}
+
+.navy h3, .coal h3, .ayu h3 {
+  color: #60a5fa;
+}

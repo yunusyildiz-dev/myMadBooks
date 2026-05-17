@@ -1,0 +1,11 @@
+[book]
+title = "TypeScript Handbook"
+authors = ["yunusyildiz-dev"]
+language = "tr"
+
+[output.html]
+site-url = "https://yunusyildiz-dev.github.io/myMadBooks/typescript-handbook/"
+git-repository-url = "https://github.com/yunusyildiz-dev/myMadBooks/tree/main/typescript-handbook-mdbook"
+git-repository-icon = "fab-github"
+additional-css = ["footer-favicon.css", "typescript-theme.css"]
+additional-js = ["git-link-newtab.js", "footer-favicon.js"]
